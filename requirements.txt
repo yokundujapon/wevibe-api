@@ -1,0 +1,13 @@
+# Core pipeline
+assemblyai>=0.30.0
+anthropic>=0.40.0
+python-dotenv>=1.0.0
+
+# FastAPI backend (production)
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+
+# CLI / dev tools (optional on server)
+rich>=13.7.0
+typer>=0.12.0

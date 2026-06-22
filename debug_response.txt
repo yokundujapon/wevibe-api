@@ -1,0 +1,277 @@
+{
+  "session_metadata": {
+    "speaker_count": 3,
+    "total_word_count": 498,
+    "dominant_language": "english",
+    "context": "business",
+    "overall_group_tension": 4,
+    "group_cohesion": 7,
+    "analysis_confidence": "MEDIUM",
+    "disclaimer": "This analysis is a probabilistic behavioral interpretation based on verbal patterns only. It is not a clinical, psychiatric, or scientific assessment. Results should be used for communication and self-awareness purposes only."
+  },
+  "speakers": [
+    {
+      "speaker_id": "Speaker A",
+      "word_count": 148,
+      "confidence": "MEDIUM",
+
+      "big_five": {
+        "openness":          { "score": 38, "evidence": "'Context doesn't pay the bills' — resists framing shifts" },
+        "conscientiousness": { "score": 78, "evidence": "'I want a detailed execution plan by Friday'" },
+        "extraversion":      { "score": 72, "evidence": "'I want to get straight to the point'" },
+        "agreeableness":     { "score": 42, "evidence": "'That's a bit unfair' draws pushback; dismissive tone early on" },
+        "neuroticism":       { "score": 45, "evidence": "Pause then concession '...You're right' suggests moderate emotional regulation" }
+      },
+
+      "disc_profile": {
+        "primary_type": "D",
+        "secondary_type": "C",
+        "disc_scores": { "D": 85, "I": 30, "S": 22, "C": 58 },
+        "disc_summary": "Appears results-driven and directive, pushing for concrete numbers and deadlines while showing some analytical demand for precision and accountability."
+      },
+
+      "mbti_like": {
+        "probable_type": "ESTJ-like",
+        "axis_scores": {
+          "E_vs_I": 72,
+          "S_vs_N": 75,
+          "T_vs_F": 82,
+          "J_vs_P": 88
+        },
+        "mbti_note": "Behavioral approximation from verbal patterns only — not a validated MBTI assessment."
+      },
+
+      "enneagram": {
+        "probable_type": 8,
+        "type_label": "Type 8 — The Challenger",
+        "rationale": "Language pattern consistently centers on direct confrontation of problems and resistance to vulnerability ('We can't show weakness'), suggesting a probable Type 8 orientation driven by control and directness. The eventual concession after peer challenge hints at underlying respect for strength, consistent with Type 8 growth patterns."
+      },
+
+      "emotional_state": {
+        "dominant_emotion": "confident",
+        "emotional_stability": 6,
+        "stress_indicators": ["Abrupt dismissal of context early", "Defensive framing around weakness"],
+        "positive_affect": 6
+      },
+
+      "communication_style": {
+        "style": "assertive",
+        "interruptions_tendency": "medium",
+        "vocabulary_complexity": "intermediate",
+        "use_of_hedging": "low",
+        "use_of_first_person_singular": "high",
+        "notable_patterns": [
+          "Transactional framing — shifts quickly from critique to action",
+          "Uses short declarative commands: 'Set it up', 'Let's move forward', 'Keep it factual'"
+        ]
+      },
+
+      "interpersonal_dynamics": {
+        "dominant_in_group": true,
+        "conflict_tendency": "medium",
+        "alliance_signals": ["Speaker C"],
+        "tension_signals": ["Speaker B"]
+      },
+
+      "risk_flags": {
+        "elevated_anxiety": false,
+        "social_withdrawal": false,
+        "potential_conflict": true,
+        "disengagement": false
+      },
+
+      "radar_data": {
+        "labels": ["Openness","Conscientiousness","Extraversion","Agreeableness","Neuroticism","Dominance","Influence","Steadiness","Conscientiousness_DISC"],
+        "scores": [38, 78, 72, 42, 45, 85, 30, 22, 58]
+      },
+
+      "interaction_recommendations": {
+        "how_to_engage": "Lead with concrete data, clear outcomes, and defined timelines — this speaker appears to respond well to specificity and forward momentum. Frame recommendations in terms of results and accountability.",
+        "what_to_avoid": "Avoid lengthy context-setting, emotional appeals, or vague optimism; language such as 'morale' or 'fairness' without immediately tying it to business outcomes may generate dismissiveness.",
+        "motivational_levers": ["Measurable results and visible progress", "Maintaining authority and decisiveness in the group"],
+        "potential_blind_spots": ["May underweight team wellbeing signals until they create operational risk", "Early framing as 'execution gaps' could erode trust with operational leads before facts are assessed"]
+      },
+
+      "summary": "Speaker A appears to lead with a results-first, directive communication style consistent with high Dominance and Conscientiousness tendencies. Verbal patterns suggest a probable preference for control and closure over open exploration, though the late-session concession on team morale may indicate capacity for adaptability when confronted with credible peer input. Overall, this speaker likely functions most effectively in structured accountability contexts and may benefit from deliberate openness to contextual nuance."
+    },
+    {
+      "speaker_id": "Speaker B",
+      "word_count": 148,
+      "confidence": "MEDIUM",
+
+      "big_five": {
+        "openness":          { "score": 55, "evidence": "'If there are execution gaps, they're strategic, not operational' — reframes problem space" },
+        "conscientiousness": { "score": 65, "evidence": "'I'll need thirty minutes with you separately to discuss the legal resource issue'" },
+        "extraversion":      { "score": 58, "evidence": "Engages assertively but in a measured, issue-focused way" },
+        "agreeableness":     { "score": 70, "evidence": "'It's not weakness, it's respect. These people have given a lot.'" },
+        "neuroticism":       { "score": 40, "evidence": "Maintains steady advocacy without visible emotional escalation" }
+      },
+
+      "disc_profile": {
+        "primary_type": "S",
+        "secondary_type": "D",
+        "disc_scores": { "D": 58, "I": 45, "S": 72, "C": 50 },
+        "disc_summary": "Likely combines a protective, team-oriented steadiness with enough directness to push back on authority when team fairness is at stake."
+      },
+
+      "mbti_like": {
+        "probable_type": "ISFJ-like",
+        "axis_scores": {
+          "E_vs_I": 52,
+          "S_vs_N": 62,
+          "T_vs_F": 38,
+          "J_vs_P": 60
+        },
+        "mbti_note": "Behavioral approximation from verbal patterns only — not a validated MBTI assessment."
+      },
+
+      "enneagram": {
+        "probable_type": 6,
+        "type_label": "Type 6 — The Loyalist",
+        "rationale": "Repeated advocacy for the team ('working weekends for six months') and systemic resource concerns suggests loyalty and a tendency to surface risks and structural vulnerabilities. The consistent framing of team protection alongside deference to process ('I'll set it up with your assistant') appears consistent with Type 6 patterns."
+      },
+
+      "emotional_state": {
+        "dominant_emotion": "engaged",
+        "emotional_stability": 7,
+        "stress_indicators": ["Repeated return to staffing constraints suggests underlying frustration", "Mild edge in 'That's a bit unfair'"],
+        "positive_affect": 6
+      },
+
+      "communication_style": {
+        "style": "diplomatic",
+        "interruptions_tendency": "low",
+        "vocabulary_complexity": "intermediate",
+        "use_of_hedging": "medium",
+        "use_of_first_person_singular": "medium",
+        "notable_patterns": [
+          "Consistently advocates for team welfare without becoming purely emotional",
+          "Uses caveats to add precision rather than avoid confrontation: 'I'd add one caveat'"
+        ]
+      },
+
+      "interpersonal_dynamics": {
+        "dominant_in_group": false,
+        "conflict_tendency": "medium",
+        "alliance_signals": ["Speaker C"],
+        "tension_signals": ["Speaker A"]
+      },
+
+      "risk_flags": {
+        "elevated_anxiety": false,
+        "social_withdrawal": false,
+        "potential_conflict": true,
+        "disengagement": false
+      },
+
+      "radar_data": {
+        "labels": ["Openness","Conscientiousness","Extraversion","Agreeableness","Neuroticism","Dominance","Influence","Steadiness","Conscientiousness_DISC"],
+        "scores": [55, 65, 58, 70, 40, 58, 45, 72, 50]
+      },
+
+      "interaction_recommendations": {
+        "how_to_engage": "Acknowledge team contributions and systemic constraints explicitly before moving to performance discussion — this speaker appears to need fairness framing before they can fully commit to forward-looking action.",
+        "what_to_avoid": "Dismissing resource or morale concerns as excuses is likely to trigger sustained pushback and erode trust; avoid forcing agreement without genuine acknowledgment.",
+        "motivational_levers": ["Recognition of team sacrifice and effort", "Systemic problem-solving rather than individual accountability framing"],
+        "potential_blind_spots": ["Strong team-advocacy stance may occasionally obscure honest assessment of individual performance issues", "May over-index on constraints when strategic pivots require accepting imperfect conditions"]
+      },
+
+      "summary": "Speaker B appears to serve as a team advocate and systemic thinker, consistently anchoring discussion in resource realities and people considerations. Verbal patterns suggest a likely combination of loyalty-driven motivation and measured directness — willing to challenge authority but within a collaborative frame. This speaker may be a stabilizing force in the group, bridging strategic demands and operational realities."
+    },
+    {
+      "speaker_id": "Speaker C",
+      "word_count": 160,
+      "confidence": "MEDIUM",
+
+      "big_five": {
+        "openness":          { "score": 68, "evidence": "'Three realistic levers' — structured but generative framing" },
+        "conscientiousness": { "score": 85, "evidence": "'I've identified about two hundred thousand in Q4 savings that wouldn't impact delivery'" },
+        "extraversion":      { "score": 52, "evidence": "Contributes meaningfully but tends to facilitate rather than dominate" },
+        "agreeableness":     { "score": 75, "evidence": "'Maybe we could focus on what we can actually control' — de-escalation orientation" },
+        "neuroticism":       { "score": 28, "evidence": "Consistently calm, solution-framing language throughout the exchange" }
+      },
+
+      "disc_profile": {
+        "primary_type": "C",
+        "secondary_type": "S",
+        "disc_scores": { "D": 40, "I": 48, "S": 65, "C": 82 },
+        "disc_summary": "Likely a detail-oriented, analytical communicator who prioritizes accuracy, preparation, and group harmony, bringing structured plans and carefully hedged recommendations."
+      },
+
+      "mbti_like": {
+        "probable_type": "INTJ-like",
+        "axis_scores": {
+          "E_vs_I": 48,
+          "S_vs_N": 42,
+          "T_vs_F": 65,
+          "J_vs_P": 82
+        },
+        "mbti_note": "Behavioral approximation from verbal patterns only — not a validated MBTI assessment."
+      },
+
+      "enneagram": {
+        "probable_type": 1,
+        "type_label": "Type 1 — The Reformer",
+        "rationale": "Persistent focus on precision, preparation, and doing things the right way ('I've drafted messaging around value reinforcement', 'I'll help draft the talking points') suggests an underlying drive toward correctness and improvement. The calm, principled de-escalation style also appears consistent with Type 1 behavioral patterns."
+      },
+
+      "emotional_state": {
+        "dominant_emotion": "calm",
+        "emotional_stability": 9,
+        "stress_indicators": ["No observable stress signals in this transcript"],
+        "positive_affect": 7
+      },
+
+      "communication_style": {
+        "style": "analytical",
+        "interruptions_tendency": "low",
+        "vocabulary_complexity": "advanced",
+        "use_of_hedging": "medium",
+        "use_of_first_person_singular": "medium",
+        "notable_patterns": [
+          "Structures contributions numerically ('three realistic levers', 'two hundred thousand in Q4 savings')",
+          "Proactively bridges conflict by redirecting to shared, actionable ground"
+        ]
+      },
+
+      "interpersonal_dynamics": {
+        "dominant_in_group": false,
+        "conflict_tendency": "low",
+        "alliance_signals": ["Speaker A", "Speaker B"],
+        "tension_signals": []
+      },
+
+      "risk_flags": {
+        "elevated_anxiety": false,
+        "social_withdrawal": false,
+        "potential_conflict": false,
+        "disengagement": false
+      },
+
+      "radar_data": {
+        "labels": ["Openness","Conscientiousness","Extraversion","Agreeableness","Neuroticism","Dominance","Influence","Steadiness","Conscientiousness_DISC"],
+        "scores": [68, 85, 52, 75, 28, 40, 48, 65, 82]
+      },
+
+      "interaction_recommendations": {
+        "how_to_engage": "Give this speaker adequate preparation time and signal appreciation for their analytical groundwork — they appear to respond positively when their preparation is visibly recognized and actioned.",
+        "what_to_avoid": "Avoid dismissing structured plans with broad skepticism before engaging with the detail; reactive or impulsive decision-making without consulting their analysis may cause disengagement.",
+        "motivational_levers": ["Recognition of preparation quality and thoroughness", "Being given ownership of structured workstreams or communications"],
+        "potential_blind_spots": ["Strong preference for structured plans may sometimes underestimate the speed needed in volatile environments", "Conflict-avoidance orientation may lead to under-surfacing interpersonal issues until they become harder to resolve"]
+      },
+
+      "summary": "Speaker C appears to function as the group's analytical stabilizer and execution architect — bringing quantified proposals, calm framing, and proactive communication drafts to a tense discussion. Verbal patterns suggest high conscientiousness and agreeableness alongside a probable preference for structured, evidence-based approaches. This speaker likely serves as a critical bridge between the directive authority style of Speaker A and the advocacy stance of Speaker B."
+    }
+  ],
+  "group_dynamics": {
+    "power_structure": "hierarchical",
+    "dominant_speaker": "Speaker A",
+    "most_collaborative": "Speaker C",
+    "most_at_risk": "Speaker B",
+    "key_tension_pairs": [["Speaker A", "Speaker B"]],
+    "complementarity_pairs": [["Speaker A", "Speaker C"], ["Speaker B", "Speaker C"]],
+    "group_summary": "This group appears to operate within a clear hierarchical structure with Speaker A holding positional authority, though that authority is constructively challenged by Speaker B around team welfare and resource realities. Speaker C appears to function as a cohesion enabler — consistently redirecting tension toward concrete, shared-action frameworks. The overall dynamic suggests a functional but periodically strained team where strategic pressure is pushing against operational capacity concerns. The group's ability to reach aligned decisions by the end of the session suggests underlying mutual respect despite visible friction.",
+    "group_recommendations": {
+      "communication_improvements": [
+        "Speaker A may benefit from opening with acknowledgment of team effort before pivoting to performance gaps — this could reduce defensive positioning from Speaker B and create faster alignment",
+        "Establishing a shared factual baseline (e.g., staffing ratios, pipeline data) before evaluative

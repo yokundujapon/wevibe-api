@@ -1,0 +1,30 @@
+# Secrets — NE JAMAIS committer
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Audio files (trop lourds pour git)
+*.m4a
+*.mp3
+*.wav
+*.mp4
+*.aac
+
+# Reports
+report_*.json
+output_*.json
+*.save
+.env.save
