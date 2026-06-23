@@ -164,6 +164,10 @@ Return ONLY a valid JSON object — no preamble, no markdown fences.
         "scores": [<O>,<C>,<E>,<A>,<N>,<D>,<I>,<S>,<C_disc>]
       },
 
+      "key_strengths": ["<observable behavioral strength 1>", "<strength 2>", "<strength 3>"],
+      "watch_points": ["<behavioral pattern to monitor 1>", "<watch point 2>"],
+      "core_motivations": ["<probable core motivation 1>", "<motivation 2>"],
+
       "interaction_recommendations": {
         "how_to_engage": "<1-2 sentences on the most effective communication approach for this speaker>",
         "what_to_avoid": "<1-2 sentences on approaches likely to create friction or disengagement>",
@@ -171,7 +175,7 @@ Return ONLY a valid JSON object — no preamble, no markdown fences.
         "potential_blind_spots": ["<blind spot 1>", "<blind spot 2>"]
       },
 
-      "summary": "<2-3 sentence probabilistic behavioral summary — use hedged language throughout>"
+      "summary": "<2-3 sentence probabilistic behavioral summary — cover dominant style, probable motivation, and key watch point — use hedged language throughout>"
     }
   ],
   "group_dynamics": {
@@ -197,11 +201,32 @@ def build_user_prompt(transcript: str, context: str = "professional meeting") ->
     return f"""
 Context: {context}
 
-Please analyze the following conversation transcript and return the complete
-WeVibe psychological profile JSON as specified in your instructions.
-Apply all four models (Big Five, DISC, MBTI-like, Enneagram) for each speaker.
-Include interaction_recommendations and group_recommendations.
-Use probabilistic, non-clinical language throughout.
+Analyze the following conversation transcript and return the complete WeVibe JSON profile.
+
+For EACH speaker, you must produce:
+- Big Five (OCEAN) scores with 3-7 word evidence quotes
+- DISC profile (primary + secondary type, D/I/S/C scores, 1-sentence behavioral summary)
+- MBTI-like type and axis scores
+- Enneagram probable type with rationale
+- Emotional state (dominant emotion, stability 0-10, stress indicators, positive affect)
+- Communication style details
+- Interpersonal dynamics (dominant, conflict tendency, alliances, tensions)
+- key_strengths: 2-3 observable behavioral strengths grounded in the transcript
+- watch_points: 1-2 behavioral patterns worth monitoring (non-clinical)
+- core_motivations: 2 probable driving motivations based on language patterns
+- interaction_recommendations: how_to_engage, what_to_avoid, motivational_levers, potential_blind_spots
+- risk_flags: elevated_anxiety, social_withdrawal, potential_conflict, disengagement
+- radar_data: labels and scores array
+- summary: 2-3 sentence probabilistic summary covering dominant style, probable motivation, key watch point
+
+For the GROUP dynamics:
+- Identify power structure, dominant speaker, most collaborative, most at risk
+- List key tension and complementarity pairs
+- 3-4 sentence group summary covering mood, communication patterns, underlying dynamics
+- group_recommendations: strengths, communication_improvements, role_clarification_needed, risk_mitigation
+
+Use calibrated probabilistic language throughout (suggests, may indicate, appears consistent with).
+Never use definitive clinical language. Return ONLY valid JSON, no markdown fences.
 
 --- TRANSCRIPT START ---
 {transcript}
