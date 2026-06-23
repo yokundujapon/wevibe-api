@@ -97,10 +97,12 @@ async def analyze_transcript(req: TranscriptRequest):
 async def analyze_audio(
     file: UploadFile = File(...),
     context: str = Form(default="professional meeting"),
+    speakers_expected: int = Form(default=None),
 ):
     """
     Upload an audio file.
     Pipeline: AssemblyAI diarization → Claude psychological analysis.
+    speakers_expected: 1-5 (None = auto-detect)
     Accepts: .m4a, .mp3, .wav, .mp4
     """
     allowed_extensions = {".m4a", ".mp3", ".wav", ".mp4", ".aac", ".ogg"}
@@ -119,8 +121,8 @@ async def analyze_audio(
             tmp.write(content)
             tmp_path = tmp.name
 
-        # Transcribe + diarize via AssemblyAI
-        aai_transcript = transcribe_audio(tmp_path)
+        # Transcribe + diarize via AssemblyAI (with speaker hint if provided)
+        aai_transcript = transcribe_audio(tmp_path, speakers_expected=speakers_expected)
         transcript_text, word_counts, speaker_map = format_transcript_for_analysis(aai_transcript)
 
         # Psychological analysis via Claude

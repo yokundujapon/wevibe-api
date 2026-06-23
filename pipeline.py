@@ -34,23 +34,24 @@ app = typer.Typer()
 # 1. ASSEMBLYAI — Transcription + Diarization
 # ─────────────────────────────────────────────
 
-def transcribe_audio(audio_path: str) -> dict:
+def transcribe_audio(audio_path: str, speakers_expected: int = None) -> dict:
     """
     Send audio file to AssemblyAI.
     Returns structured transcript with speaker labels.
+    speakers_expected: hint to AssemblyAI diarization (1-5), None = auto-detect
     """
     aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
     if not aai.settings.api_key:
         raise ValueError("ASSEMBLYAI_API_KEY not set in .env")
 
     config = aai.TranscriptionConfig(
-        speaker_labels=True,          # Enable diarization
-        speakers_expected=None,       # Auto-detect speaker count
-        language_code="en",           # English
+        speaker_labels=True,                        # Enable diarization
+        speakers_expected=speakers_expected,        # User-defined or auto-detect
+        language_code="en",
         punctuate=True,
         format_text=True,
-        sentiment_analysis=True,      # AssemblyAI built-in sentiment
-        auto_highlights=True,         # Key topics detection
+        sentiment_analysis=True,
+        auto_highlights=True,
     )
 
     console.print("[cyan]→ Uploading audio to AssemblyAI...[/cyan]")
