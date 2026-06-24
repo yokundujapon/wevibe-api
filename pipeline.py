@@ -34,24 +34,31 @@ app = typer.Typer()
 # 1. ASSEMBLYAI — Transcription + Diarization
 # ─────────────────────────────────────────────
 
-def transcribe_audio(audio_path: str, speakers_expected: int = None) -> dict:
+def transcribe_audio(audio_path: str, speakers_expected: int = None, language: str = None) -> dict:
     """
     Send audio file to AssemblyAI.
     Returns structured transcript with speaker labels.
     speakers_expected: hint to AssemblyAI diarization (1-5), None = auto-detect
+    language: ISO code ("en", "fr", "ja"), None = auto-detect (supports EN / FR / JA + 100 others)
+    Note: sentiment_analysis and auto_highlights are English-only AssemblyAI features — omitted
+    to ensure multilingual compatibility.
     """
     aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
     if not aai.settings.api_key:
         raise ValueError("ASSEMBLYAI_API_KEY not set in .env")
 
+    # language_detection and language_code are mutually exclusive in AssemblyAI
+    if language:
+        lang_kwargs = {"language_code": language}
+    else:
+        lang_kwargs = {"language_detection": True}
+
     config = aai.TranscriptionConfig(
         speaker_labels=True,                        # Enable diarization
-        speakers_expected=speakers_expected,        # User-defined or auto-detect
-        language_code="en",
+        speakers_expected=speakers_expected,        # None = auto-detect
         punctuate=True,
         format_text=True,
-        sentiment_analysis=True,
-        auto_highlights=True,
+        **lang_kwargs,
     )
 
     console.print("[cyan]→ Uploading audio to AssemblyAI...[/cyan]")
@@ -61,7 +68,9 @@ def transcribe_audio(audio_path: str, speakers_expected: int = None) -> dict:
     if transcript.status == aai.TranscriptStatus.error:
         raise RuntimeError(f"Transcription failed: {transcript.error}")
 
-    console.print(f"[green]✓ Transcription complete — {len(transcript.words)} words detected[/green]")
+    detected_lang = getattr(transcript, "language_code", language or "en")
+    console.print(f"[green]✓ Transcription complete — {len(transcript.words)} words detected (language: {detected_lang})[/green]")
+    transcript._detected_language = detected_lang
     return transcript
 
 
@@ -113,16 +122,17 @@ def load_transcript_file(path: str) -> tuple[str, dict]:
 # 2. CLAUDE API — Psychological Analysis
 # ─────────────────────────────────────────────
 
-def analyze_psychology(transcript_text: str, context: str = "professional meeting") -> dict:
+def analyze_psychology(transcript_text: str, context: str = "professional meeting", detected_language: str = "en") -> dict:
     """
     Send formatted transcript to Claude for psychological profiling.
     Returns structured JSON profile.
+    detected_language: ISO code detected by AssemblyAI (e.g. "en", "fr", "ja")
     """
     client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
     if not os.getenv("ANTHROPIC_API_KEY"):
         raise ValueError("ANTHROPIC_API_KEY not set in .env")
 
-    user_message = build_user_prompt(transcript_text, context)
+    user_message = build_user_prompt(transcript_text, context, detected_language)
 
     console.print("[cyan]→ Sending to Claude for psychological analysis...[/cyan]")
 

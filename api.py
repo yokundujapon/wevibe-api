@@ -98,11 +98,13 @@ async def analyze_audio(
     file: UploadFile = File(...),
     context: str = Form(default="professional meeting"),
     speakers_expected: int = Form(default=None),
+    language: str = Form(default=None),
 ):
     """
     Upload an audio file.
     Pipeline: AssemblyAI diarization → Claude psychological analysis.
     speakers_expected: 1-5 (None = auto-detect)
+    language: "en" | "fr" | "ja" | None (None = auto-detect)
     Accepts: .m4a, .mp3, .wav, .mp4
     """
     allowed_extensions = {".m4a", ".mp3", ".wav", ".mp4", ".aac", ".ogg"}
@@ -121,15 +123,17 @@ async def analyze_audio(
             tmp.write(content)
             tmp_path = tmp.name
 
-        # Transcribe + diarize via AssemblyAI (with speaker hint if provided)
-        aai_transcript = transcribe_audio(tmp_path, speakers_expected=speakers_expected)
+        # Transcribe + diarize via AssemblyAI (language auto-detect or explicit)
+        aai_transcript = transcribe_audio(tmp_path, speakers_expected=speakers_expected, language=language)
+        detected_language = getattr(aai_transcript, "_detected_language", language or "en")
         transcript_text, word_counts, speaker_map = format_transcript_for_analysis(aai_transcript)
 
-        # Psychological analysis via Claude
-        result = analyze_psychology(transcript_text, context)
+        # Psychological analysis via Claude (language-aware)
+        result = analyze_psychology(transcript_text, context, detected_language=detected_language)
         result["word_counts"] = word_counts
         result["formatted_transcript"] = transcript_text
         result["input_mode"] = "audio"
+        result["detected_language"] = detected_language
         return result
 
     except Exception as e:

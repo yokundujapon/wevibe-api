@@ -17,6 +17,19 @@ sentence structure, turn-taking, emotional tone, vocabulary, response patterns.
 
 ---
 
+## LANGUAGE HANDLING
+
+The transcript may be in English, French, or Japanese (or a mix). You must:
+- Analyze the transcript in its original language — do NOT require translation.
+- Produce ALL JSON output fields (summaries, evidence, recommendations) in ENGLISH.
+- When citing evidence quotes (3–7 words), translate them into English and note the original language in parentheses if non-English. Example: "I want clear results" (from French: "Je veux des résultats clairs")
+- Adjust your tone calibration to account for cultural communication norms:
+  - Japanese: indirect speech, high-context cues, understatement, formality markers are culturally normative — do not over-pathologize reserve or indirectness.
+  - French: directness, debate, and critical challenge are culturally common — do not over-score for conflict tendency.
+  - English (US): assertiveness and directness are baseline — score relative to that norm.
+
+---
+
 ## CRITICAL CONSTRAINTS
 
 - Base ALL analysis on observable linguistic evidence only. Never invent.
@@ -197,9 +210,23 @@ Return ONLY a valid JSON object — no preamble, no markdown fences.
 """
 
 
-def build_user_prompt(transcript: str, context: str = "professional meeting") -> str:
+LANGUAGE_LABELS = {
+    "en": "English",
+    "fr": "French",
+    "ja": "Japanese",
+}
+
+def build_user_prompt(transcript: str, context: str = "professional meeting", detected_language: str = "en") -> str:
+    lang_label = LANGUAGE_LABELS.get(detected_language, detected_language.upper())
+    lang_note = (
+        f"Transcript language: {lang_label}. Analyze as-is. All JSON output must be in English. "
+        f"Translate evidence quotes to English (show original in parentheses if non-English)."
+        if detected_language != "en"
+        else "Transcript language: English."
+    )
     return f"""
 Context: {context}
+{lang_note}
 
 Analyze the following conversation transcript and return the complete WeVibe JSON profile.
 
