@@ -216,14 +216,22 @@ LANGUAGE_LABELS = {
     "ja": "Japanese",
 }
 
-def build_user_prompt(transcript: str, context: str = "professional meeting", detected_language: str = "en") -> str:
-    lang_label = LANGUAGE_LABELS.get(detected_language, detected_language.upper())
-    lang_note = (
-        f"Transcript language: {lang_label}. Analyze as-is. All JSON output must be in English. "
-        f"Translate evidence quotes to English (show original in parentheses if non-English)."
-        if detected_language != "en"
-        else "Transcript language: English."
-    )
+def build_user_prompt(transcript: str, context: str = "professional meeting", detected_language: str = None) -> str:
+    # Only trust AssemblyAI's detection when it returns a known non-English language.
+    # For English or unknown (None), instruct Claude to auto-detect from the transcript.
+    if detected_language and detected_language in LANGUAGE_LABELS and detected_language != "en":
+        lang_label = LANGUAGE_LABELS[detected_language]
+        lang_note = (
+            f"Transcript language: {lang_label}. Analyze as-is. All JSON output must be in English. "
+            f"Translate evidence quotes to English (show original in parentheses if non-English)."
+        )
+    else:
+        lang_note = (
+            "Auto-detect the language of this transcript. "
+            "If non-English, apply appropriate cultural calibration (French, Japanese, or other norms). "
+            "All JSON output must be in English. "
+            "Translate evidence quotes to English, noting the original language in parentheses."
+        )
     return f"""
 Context: {context}
 {lang_note}
